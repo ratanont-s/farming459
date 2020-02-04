@@ -117,7 +117,10 @@ section.four {
 
 section.five {
     background: url('../img/bg-download@2x.png') no-repeat center center/cover;
-    background-attachment: fixed;
+
+    @include media-breakpoint-up(lg) {
+        background-attachment: fixed;
+    }
 
     .card {
         height: calc(100% - 1.5rem);
