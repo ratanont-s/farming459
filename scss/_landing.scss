@@ -23,6 +23,41 @@ section.two {
 section.three {
     background-color: $light;
 
+    .slick {
+        &-arrow {
+            width: 60px;
+            height: 100px;
+            background-color: $light;
+            z-index: 2;
+            opacity: 0.5;
+            @include transition($transition-base);
+
+            &:hover {
+                opacity: 1;
+                @include transition($transition-base);
+            }
+
+            &::before {
+                display: none;
+            }
+        }
+
+        &-prev {
+            left: 0;
+            border-top-right-radius: .75rem;
+            border-bottom-right-radius: .75rem;
+        }
+
+        &-next {
+            right: 0;
+            border-top-left-radius: .75rem;
+            border-bottom-left-radius: .75rem;
+        }
+
+        // @include media-breakpoint-down(lg) {
+        // }
+    }
+
     .slider {
         &-item {
             position: relative;
@@ -54,11 +89,19 @@ section.three {
 
 section.four {
     .card {
+        color: $primary;
+        height: calc(100% - 1rem);
+        margin-bottom: 1rem;
         border-width: 0;
         border-radius: .75rem;
         box-shadow: $box-shadow-sm;
         overflow: hidden;
         @include transition($transition-base);
+
+        &-body {
+            padding-left: 0.25rem;
+            padding-right: 0.25rem;
+        }
 
         &:hover {
             color: white;
