@@ -9,7 +9,10 @@ section.one {
     min-height: 100vh;
     // @include gradient-bg($primary);
     background: url('../img/bg-top@2x.png') no-repeat center center/cover;
-    background-attachment: fixed;
+
+    @include media-breakpoint-up(lg) {
+        background-attachment: fixed;
+    }
 }
 
 section.two {
