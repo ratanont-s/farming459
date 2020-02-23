@@ -1,24 +1,16 @@
 header {
+    background-color: rgba($primary,.75);
+    padding: .5rem 0;
+    box-shadow: $box-shadow-sm;
     .header {
         &-logo {
             display: inline-block;
-            padding: 1rem;
-            box-shadow: $box-shadow;
-            @include gradient-bg($white);
-
-            @include media-breakpoint-down(sm) {
-                img {
-                    max-height: 50px;
-                    object-fit: contain;
-                }
+            &:hover{
+                filter: drop-shadow(0 0 3px white);
             }
-        }
-    }
-
-    &.header-small {
-        .header-logo {
-            width: 60px;
-            padding: 0.5rem;
+            img{
+                max-height: 50px;
+            }
         }
     }
 }

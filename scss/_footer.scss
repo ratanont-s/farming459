@@ -1,0 +1,24 @@
+footer {
+    background-color: $primary;
+    position: relative;
+    padding: 1rem 0;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: $secondary;
+        box-shadow: 0 0 4px black;
+    }
+
+    &::before {
+        top: 0;
+    }
+
+    &::after {
+        bottom: 0;
+    }
+}

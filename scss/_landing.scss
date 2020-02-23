@@ -1,5 +1,9 @@
 section {
     padding: 4em 0;
+
+    .text-indent {
+        text-indent: 2em;
+    }
 }
 
 section.one {
@@ -7,8 +11,27 @@ section.one {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    // @include gradient-bg($primary);
-    background: url('../img/bg-top@2x.png') no-repeat center center/cover;
+    background: url('../img/bg@2x.png') no-repeat center center/cover;
+
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('../img/vegetable.png') no-repeat center bottom/100% auto;
+        z-index: 0;
+    }
+
+    .container {
+        position: relative;
+        z-index: 1;
+
+        .btn {
+            box-shadow: 0 3px 6px rgba(black, .16);
+        }
+    }
 
     @include media-breakpoint-up(lg) {
         background-attachment: fixed;
@@ -16,6 +39,8 @@ section.one {
 }
 
 section.two {
+    background-color: white;
+
     .embed-responsive {
         border-radius: .75rem;
         overflow: hidden;
@@ -91,6 +116,8 @@ section.three {
 }
 
 section.four {
+    background: url('../img/bg-four.svg') no-repeat center top/cover;
+
     .card {
         color: $primary;
         height: calc(100% - 1rem);
@@ -106,6 +133,12 @@ section.four {
             padding-right: 0.25rem;
         }
 
+        &-title {
+            @include media-breakpoint-down(md) {
+                font-size: 1em;
+            }
+        }
+
         &:hover {
             color: white;
             box-shadow: $box-shadow;
@@ -116,17 +149,16 @@ section.four {
 }
 
 section.five {
-    background: url('../img/bg-download@2x.png') no-repeat center center/cover;
-
-    @include media-breakpoint-up(lg) {
-        background-attachment: fixed;
+    h2 {
+        font-weight: 700;
+        font-size: 2.5em;
+        text-shadow: 0 3px 6px black;
     }
 
     .card {
         height: calc(100% - 1.5rem);
         margin-bottom: 1.5rem;
-        background-color: rgba(black, .25);
-        backdrop-filter: blur(10px);
+        background-color: rgba(black, .5);
         border-width: 0;
         border-radius: .75rem;
         @include transition($transition-base);
@@ -145,6 +177,96 @@ section.five {
         &-title {
             color: white;
             margin-bottom: 0;
+        }
+    }
+}
+
+section.six {
+    position: relative;
+    padding: 2rem;
+    background-color: rgba($primary, .8);
+
+    @include media-breakpoint-up(lg) {
+        padding-top: 8em;
+    }
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 2rem;
+        height: 100%;
+        z-index: 0;
+
+        @include media-breakpoint-up(lg) {
+            width: 10rem;
+        }
+    }
+
+    &::before {
+        left: 0;
+        background: url('../img/BG00L.png') repeat-y left top/100% auto;
+    }
+
+    &::after {
+        right: 0;
+        background: url('../img/BG00R.png') repeat-y right top/100% auto;
+    }
+
+    .bg {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+
+        &-top {
+            top: -1px;
+            background: url('../img/six-top.svg') no-repeat right top/contain;
+        }
+
+        &-bottom {
+            bottom: -1px;
+            background: url('../img/six-bottom.svg') no-repeat left bottom/contain;
+        }
+    }
+
+
+    >.container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .text-title {
+        font-weight: 700;
+        text-shadow: 0 0 .15em black;
+
+        small {
+            display: block;
+        }
+    }
+
+    .card {
+        background-color: rgba(white, .5);
+        backdrop-filter: blur(1rem);
+        border-width: 0;
+        border-radius: 1em;
+
+        b {
+            font-size: 1.25em;
+        }
+
+        @include media-breakpoint-down(md) {
+            box-shadow: 0 6px 6px rgba(black, .16);
+            margin-top: -1.1rem;
+            z-index: -1;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            @include gradient-y($start-color: #E6AC96, $end-color: rgba(white, .5), $start-percent: 0%, $end-percent: 100%);
+            // margin-left: calc(-2rem - 15px);
+            // margin-right: calc(-2rem - 15px);
+            // border-radius: 0;
         }
     }
 }
