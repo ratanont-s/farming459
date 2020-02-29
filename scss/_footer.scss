@@ -1,7 +1,7 @@
 footer {
     background-color: $primary;
     position: relative;
-    padding: 1rem 0;
+    padding: .5rem 0;
 
     &::before,
     &::after {
@@ -20,5 +20,13 @@ footer {
 
     &::after {
         bottom: 0;
+    }
+
+    @include media-breakpoint-up(lg) {
+        padding: .75rem 0;
+
+        img {
+            height: 60px !important;
+        }
     }
 }

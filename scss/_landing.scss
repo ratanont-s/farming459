@@ -1,8 +1,12 @@
 section {
-    padding: 4em 0;
+    padding: 5vh 0;
 
     .text-indent {
         text-indent: 2em;
+    }
+
+    @include media-breakpoint-up(lg) {
+        padding: 10vh 0;
     }
 }
 
@@ -11,7 +15,10 @@ section.one {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('../img/bg@2x.png') no-repeat center center/cover;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 
     &::before {
         content: '';
@@ -28,18 +35,19 @@ section.one {
         position: relative;
         z-index: 1;
 
+        img {
+            filter: drop-shadow(0 0 2rem rgba($primary, .5));
+        }
+
         .btn {
             box-shadow: 0 3px 6px rgba(black, .16);
         }
-    }
-
-    @include media-breakpoint-up(lg) {
-        background-attachment: fixed;
     }
 }
 
 section.two {
     background-color: white;
+    padding-bottom: 1.5rem;
 
     .embed-responsive {
         border-radius: .75rem;
@@ -81,9 +89,6 @@ section.three {
             border-top-left-radius: .75rem;
             border-bottom-left-radius: .75rem;
         }
-
-        // @include media-breakpoint-down(lg) {
-        // }
     }
 
     .slider {
@@ -113,6 +118,7 @@ section.three {
         overflow: hidden;
         @include gradient-bg($primary);
     }
+
 }
 
 section.four {
@@ -184,11 +190,8 @@ section.five {
 section.six {
     position: relative;
     padding: 2rem;
+    padding-top: 4rem;
     background-color: rgba($primary, .8);
-
-    @include media-breakpoint-up(lg) {
-        padding-top: 8em;
-    }
 
     &::before,
     &::after {
@@ -223,7 +226,7 @@ section.six {
 
         &-top {
             top: -1px;
-            background: url('../img/six-top.svg') no-repeat right top/contain;
+            background: url('../img/six-top.svg') no-repeat right top/100% auto;
         }
 
         &-bottom {
@@ -264,9 +267,10 @@ section.six {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
             @include gradient-y($start-color: #E6AC96, $end-color: rgba(white, .5), $start-percent: 0%, $end-percent: 100%);
-            // margin-left: calc(-2rem - 15px);
-            // margin-right: calc(-2rem - 15px);
-            // border-radius: 0;
         }
+    }
+
+    @include media-breakpoint-up(lg) {
+        padding-top: 22vh;
     }
 }
